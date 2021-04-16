@@ -115,7 +115,7 @@ void ShortList1(List &l) {
 void ShortList2(List &l) {
     for(NODE* pTmp1 = l.pHead; pTmp1 != NULL; pTmp1 = pTmp1->pNext) {
         for(NODE* pTmp2 = pTmp1->pNext; pTmp2 != NULL; pTmp2 = pTmp2->pNext) {
-            if(pTmp1->data.Salary > pTmp2->data.Salary) {
+            if(pTmp1->data.Hesoluong > pTmp2->data.Hesoluong) {
                 Swap(pTmp1->data, pTmp2->data);
             }
         }
@@ -143,7 +143,7 @@ void SearchStaff(List &l, string ms) {
      NODE* p = l.pHead;
      bool flag = true;
     while(p != NULL) {
-        if(p->data.MSNV.compare(ms) != 0) {
+        if(p->data.MSNV.compare(ms) == 0) {
             cout << "Found !";
             cout << "MSNV: " << p->data.MSNV << "\tTen: " << p->data.Name << endl;
             flag = false;
@@ -156,7 +156,7 @@ void SearchStaff1(List &l, string ms) {
      NODE* p = l.pHead;
      bool flag = true;
     while(p != NULL) {
-        if(p->data.Name.compare(ms) != 0) {
+        if(p->data.Name.compare(ms) == 0) {
             cout << "Found !";
             cout << "MSNV: " << p->data.MSNV << "\tTen: " << p->data.Name << endl;
             flag = false;
@@ -183,6 +183,7 @@ int main() {
  SearchStaff(l,x);
  cout << "Tim mot nhan vien co ten bang X. Nhap x: ";
  cin >> x;
+ SearchStaff1(l,x);
  cout << "Xoa nhan vien co MS bang X. Nhap x :";
  cin >> x;
  if(RemoveStaff(l,x)) cout << "===== List sau khi xoa =====" << endl;
