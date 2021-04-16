@@ -139,21 +139,50 @@ int RemoveStaff(List &l , string ms) {
     delete p;
     return 1;
 }
+void SearchStaff(List &l, string ms) {
+     NODE* p = l.pHead;
+     bool flag = true;
+    while(p != NULL) {
+        if(p->data.MSNV.compare(ms) != 0) {
+            cout << "Found !";
+            cout << "MSNV: " << p->data.MSNV << "\tTen: " << p->data.Name << endl;
+            flag = false;
+        }
+        p = p->pNext;
+    }
+    if(flag) cout << "Khong tim thay !";
+}
+void SearchStaff1(List &l, string ms) {
+     NODE* p = l.pHead;
+     bool flag = true;
+    while(p != NULL) {
+        if(p->data.Name.compare(ms) != 0) {
+            cout << "Found !";
+            cout << "MSNV: " << p->data.MSNV << "\tTen: " << p->data.Name << endl;
+            flag = false;
+        }
+        p = p->pNext;
+    }
+    if(flag)  cout << "Khong tim thay !";
+}
 int main() {
  List l;
  Input(l);
-//  PrintList(l);
-//  cout << "Sap xep List luong giam dan: " << endl;
-//  ShortList1(l);
-//  PrintList(l);
-//  cout << "Nhan vien co muc luong cao nhat la: " << endl;
-//  cout << "MSNV: " << l.pHead->data.MSNV << "\tTen: " << l.pHead->data.Name << endl;
-//  ShortList2(l);
-//  cout << "Sap xep List luong tang dan : " << endl;
-//  PrintList(l);
-//  cout << "Tim mot nhan vien co MS bang X. Nhap x: ";
+ PrintList(l);
+ cout << "Sap xep List luong giam dan: " << endl;
+ ShortList1(l);
+ PrintList(l);
+ cout << "Nhan vien co muc luong cao nhat la: " << endl;
+ cout << "MSNV: " << l.pHead->data.MSNV << "\tTen: " << l.pHead->data.Name << endl;
+ ShortList2(l);
+ cout << "Sap xep List luong tang dan : " << endl;
+ PrintList(l);
+ cout << "Tim mot nhan vien co MS bang X. Nhap x: ";
  string x;
-//  cin >> x;
+ cin >> x;
+ SearchStaff(l,x);
+ cout << "Tim mot nhan vien co ten bang X. Nhap x: ";
+ cin >> x;
  cout << "Xoa nhan vien co MS bang X. Nhap x :";
  cin >> x;
  if(RemoveStaff(l,x)) cout << "===== List sau khi xoa =====" << endl;
